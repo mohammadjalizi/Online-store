@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import { Button, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Button, CircularProgress, Stack, Typography, useTheme } from "@mui/material";
 import { useGetproductsByNameQuery } from "Redux/ProudoctsApi";
 
 
@@ -19,7 +19,14 @@ const Home = () => {
 
 console.log(data)
   const theme = useTheme();
-
+  if (isLoading) {
+    return(
+      <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>
+    )
+  }
+  
 if(data){
   return (  
     <Stack
@@ -28,10 +35,10 @@ if(data){
     >
       {data.map((item) => {
         return (
-          <Card    sx={{ maxWidth: 277, mb: 6, mx: 2 }}   key={item.id}     >
+          <Card  className="card"   sx={{ maxWidth: 277, mb: 6, mx: 2 }}   key={item.id}     >
             <CardMedia
               component="img"
-              height="194"
+              height="277"
               image={item. imageLink}
               alt="Paella dish"
             />
