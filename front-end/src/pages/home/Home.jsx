@@ -12,20 +12,21 @@ import { useGetproductsByNameQuery } from "Redux/ProudoctsApi";
 
 
 
-const receviedDateFromAPI = [{}, {}, {}, {}];
+
 
 const Home = () => {
   const { data, error, isLoading } = useGetproductsByNameQuery()
 
-
+console.log(data)
   const theme = useTheme();
-  
-  return (
+
+if(data){
+  return (  
     <Stack
       direction={"row"}
       sx={{ flexWrap: "wrap", justifyContent: "center" }}
     >
-      {receviedDateFromAPI.map((item) => {
+      {data.map((item) => {
         return (
           <Card    sx={{ maxWidth: 277, mb: 6, mx: 2 }}   key={item.id}     >
             <CardMedia
@@ -64,6 +65,8 @@ const Home = () => {
       })}
     </Stack>
   );
+
+}
 };
 
 export default Home;
