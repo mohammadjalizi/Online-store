@@ -62,6 +62,7 @@ const Drawerr = ({
 
   return (
     <Drawer
+
       sx={{
         display: { xs: noneORblock, sm: "block" },
 
@@ -107,7 +108,7 @@ const Drawerr = ({
 
         {myList.map((item) => {
           return (
-            <ListItem
+            <ListItem key={item.path}
               sx={{
                 bgcolor:
                   currentLocation.pathname === item.path
