@@ -11,11 +11,11 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-        //   state.value += action.payload
+     console.log("donnnn")
         },
   
     increaseQuntity: (state, action) => {
-    //   state.value += action.payload
+  console.log("logdone")
     },
  
     decreaseQuntity: (state, action) => {
@@ -29,6 +29,6 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increaseQuntity,decreaseQuntity,deletProudoct } = counterSlice.actions
+export const { addToCart,increaseQuntity,decreaseQuntity,deletProudoct } = counterSlice.actions
 
 export default counterSlice.reducer
