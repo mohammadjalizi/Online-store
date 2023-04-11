@@ -22,36 +22,43 @@ const Cart = () => {
   const {selectedProducts} = useSelector((state) => state.carttt)
   return (
     <Box>
-      <Paper dir="rtl" className="item-container">
-        <div className="img-title-parent">
-          <img src="####" alt="" />
-          <p className="product-name">T-shirt</p>
-        </div>
+   {selectedProducts.map(item=>{
+return(
 
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <IconButton sx={{ color: "#1976d2", ml: "10px" }} onClick={() => {}}>
-            <Add />
-          </IconButton>
+  <Paper dir="rtl" className="item-container">
+  <div className="img-title-parent">
+    <img src={item.imageLink} alt="" />
+    <p className="product-name">{item.productName}</p>
+  </div>
 
-          <StyledBadge badgeContent={1} color="secondary" />
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <IconButton sx={{ color: "#1976d2", ml: "10px" }} onClick={() => {}}>
+      <Add />
+    </IconButton>
 
-          <IconButton sx={{ color: "#1976d2", mr: "10px" }} onClick={() => {}}>
-            <Remove />
-          </IconButton>
-        </div>
+    <StyledBadge badgeContent={1} color="secondary" />
 
-        <div className="price">$100</div>
+    <IconButton sx={{ color: "#1976d2", mr: "10px" }} onClick={() => {}}>
+      <Remove />
+    </IconButton>
+  </div>
 
-        <Button sx={{display:{xs:'none',md:'inline-flex'}}} variant="text" color="error">
-          delete
-        </Button>
-        <IconButton sx={{color:'#ef5350',display:{md:"none"}}} onClick={() => {
-         
-        }
-        }>
-          <Delete/>
-        </IconButton> 
-      </Paper>
+  <div className="price">${item.price}</div>
+
+  <Button sx={{display:{xs:'none',md:'inline-flex'}}} variant="text" color="error">
+    delete
+  </Button>
+  <IconButton sx={{color:'#ef5350',display:{md:"none"}}} onClick={() => {
+   
+  }
+  }>
+    <Delete/>
+  </IconButton> 
+</Paper>
+
+)
+
+   })}
       <Paper sx={{width:"200px", mx:'auto',mt:'60px'}}>
 
  <Typography align="center"   p={2}> Cart summary  </Typography>
