@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  selectedProducts: [],
+  selectedProducts: [
+"ali"
+
+  ],
 }
 
 export const counterSlice = createSlice({
@@ -11,7 +14,7 @@ export const counterSlice = createSlice({
 
   
     incrementByAmount: (state, action) => {
-      state.value += action.payload
+    //   state.value += action.payload
     },
   },
 })

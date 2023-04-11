@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import "./Cart.css";
 import { Add, Delete, Remove } from "@mui/icons-material";
-
+import { useSelector, useDispatch } from 'react-redux'
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     backgroundColor: "#1976d2",
@@ -19,6 +19,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Cart = () => {
+  const {selectedProducts} = useSelector((state) => state.carttt)
   return (
     <Box>
       <Paper dir="rtl" className="item-container">
