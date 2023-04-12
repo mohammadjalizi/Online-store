@@ -33,6 +33,15 @@ return   item.id === action.payload.id
           
             })
             increasedproudoct.Quantity -=1
+            if (increasedproudoct.Quantity===0) {
+            const newArry=state.selectedProducts.filter((item)=>{
+ return item.id !==action.payload.id
+             
+
+            })
+            state.selectedProducts=newArry
+
+            }
 
         },
         deletProudoct: (state, action) => {
