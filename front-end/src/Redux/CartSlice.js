@@ -26,6 +26,14 @@ return   item.id === action.payload.id
  
     decreaseQuntity: (state, action) => {
         //   state.value += action.payload
+
+        const increasedproudoct=state.selectedProducts.find((item)=>{
+          return   item.id === action.payload.id  
+          
+          
+            })
+            increasedproudoct.Quantity -=1
+
         },
         deletProudoct: (state, action) => {
             //   state.value += action.payload
