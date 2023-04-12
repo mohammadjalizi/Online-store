@@ -43,7 +43,7 @@ dispatch(increaseQuntity(item))
       <Add />
     </IconButton>
 
-    <StyledBadge badgeContent={1} color="secondary" />
+    <StyledBadge badgeContent={item.Quantity} color="secondary" />
 
     <IconButton sx={{ color: "#1976d2", mr: "10px" }} onClick={() => {
 

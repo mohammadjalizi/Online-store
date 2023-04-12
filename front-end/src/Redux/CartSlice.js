@@ -17,11 +17,11 @@ export const counterSlice = createSlice({
   
     increaseQuntity: (state, action) => {
   const increasedproudoct=state.selectedProducts.find((item)=>{
-return   increasedproudoct === 0
+return   item.id === action.payload.id  
 
 
   })
-  increasedproudoct +=1
+  increasedproudoct.Quantity +=1
     },
  
     decreaseQuntity: (state, action) => {
