@@ -9,7 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import { Badge, Box, Button, CircularProgress, IconButton, Stack, Typography, styled, useTheme } from "@mui/material";
 import { useGetproductsByNameQuery } from "Redux/ProudoctsApi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart, decreaseQuntity, increaseQuntity } from "Redux/CartSlice";
 import { Add, Directions, Remove } from "@mui/icons-material";
 
@@ -20,6 +20,7 @@ import { Add, Directions, Remove } from "@mui/icons-material";
 const Home = () => {
   const { data, error, isLoading } = useGetproductsByNameQuery()
   const dispatch = useDispatch()
+  const { selectedProducts } = useSelector((state) => state.carttt);
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       backgroundColor: "#1976d2",
@@ -59,38 +60,46 @@ if(data){
               sx={{ justifyContent: "space-between" }}
               disableSpacing
             >
-      {true?(  <div style={{ display: "flex", alignItems: "center" ,direction:"rtl" }}>
-    <IconButton sx={{  ml: "10px" }} onClick={() => {
+          {selectedProducts.includes(item) ? (
+                  <div
+                    dir="rtl"
+                    style={{ display: "flex", alignItems: "center" }}
+                  >
+                    <IconButton
+                      color="primary"
+                      sx={{ ml: "10px" }}
+                      onClick={() => {
+                        dispatch(increaseQuntity(item));
+                      }}
+                    >
+                      <Add fontSize="small" />
+                    </IconButton>
 
-dispatch(increaseQuntity(item))
+                    <StyledBadge badgeContent={1} color="primary" />
 
-    }}>
-      <Add />
-    </IconButton>
-
-    <StyledBadge badgeContent={item.Quantity} color="secondary" />
-
-    <IconButton sx={{  mr: "10px" }} onClick={() => {
-
-dispatch(decreaseQuntity(item))
-    }}>
-      <Remove />
-    </IconButton>
-  </div>
-):(
-        <Button
-sx={{ textTransform: "capitalize", p: 1, lineHeight: 1.1 }}
-variant="contained"
-color="primary"
-onClick={()=>{
-dispatch(addToCart(item))
-
-
-}}
->
-Add to cart
-</Button> 
-      )}
+                    <IconButton
+                      color="primary"
+                      sx={{ mr: "10px" }}
+                      onClick={() => {
+                        dispatch(decreaseQuntity(item));
+                      }}
+                    >
+                      <Remove fontSize="small" />
+                    </IconButton>
+                  </div>
+                ) : (
+                  <Button
+                    sx={{ textTransform: "capitalize", p: 1, lineHeight: 1.1 }}
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                      dispatch(addToCart(item));
+                    }}
+                  >
+                    Add to cart
+                  </Button>
+                )}
+      
 
               <Typography
                 mr={1}
