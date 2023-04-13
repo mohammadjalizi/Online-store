@@ -53,18 +53,38 @@ if(data){
               sx={{ justifyContent: "space-between" }}
               disableSpacing
             >
-              <Button
-                sx={{ textTransform: "capitalize", p: 1, lineHeight: 1.1 }}
-                variant="contained"
-                color="primary"
-                onClick={()=>{
-         dispatch(addToCart(item))
-              
+      {false?(  <div style={{ display: "flex", alignItems: "center" }}>
+    <IconButton sx={{ color: "#1976d2", ml: "10px" }} onClick={() => {
 
-                }}
-              >
-                Add to cart
-              </Button>
+dispatch(increaseQuntity(item))
+
+    }}>
+      <Add />
+    </IconButton>
+
+    <StyledBadge badgeContent={item.Quantity} color="secondary" />
+
+    <IconButton sx={{ color: "#1976d2", mr: "10px" }} onClick={() => {
+
+dispatch(decreaseQuntity(item))
+    }}>
+      <Remove />
+    </IconButton>
+  </div>
+):(
+        <Button
+sx={{ textTransform: "capitalize", p: 1, lineHeight: 1.1 }}
+variant="contained"
+color="primary"
+onClick={()=>{
+dispatch(addToCart(item))
+
+
+}}
+>
+Add to cart
+</Button> 
+      )}
 
               <Typography
                 mr={1}

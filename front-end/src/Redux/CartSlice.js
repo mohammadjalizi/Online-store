@@ -34,6 +34,7 @@ return   item.id === action.payload.id
             })
             increasedproudoct.Quantity -=1
             if (increasedproudoct.Quantity===0) {
+            // delete the selected product
             const newArry=state.selectedProducts.filter((item)=>{
  return item.id !==action.payload.id
              
@@ -45,7 +46,12 @@ return   item.id === action.payload.id
 
         },
         deletProudoct: (state, action) => {
-            //   state.value += action.payload
+          const newArry=state.selectedProducts.filter((item)=>{
+            return item.id !==action.payload.id
+                        
+           
+                       })
+                       state.selectedProducts=newArry
             },
 
   },

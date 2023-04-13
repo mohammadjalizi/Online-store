@@ -55,7 +55,10 @@ dispatch(decreaseQuntity(item))
 
   <div className="price">${item.price}</div>
 
-  <Button sx={{display:{xs:'none',md:'inline-flex'}}} variant="text" color="error">
+  <Button      sx={{display:{xs:'none',md:'inline-flex'}}} variant="text" color="error"onClick={() => {
+   dispatch(deletProudoct(item))
+  }
+  }>
     delete
   </Button>
   <IconButton sx={{color:'#ef5350',display:{md:"none"}}} onClick={() => {
