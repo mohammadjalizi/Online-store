@@ -13,6 +13,7 @@ export const counterSlice = createSlice({
     addToCart: (state, action) => {
       const proudoctwithQuantity={...action.payload,"Quantity":1}
    state.selectedProducts.push(proudoctwithQuantity)
+   state.selectedProductsID.push(action.payload.id)
         },
   
     increaseQuntity: (state, action) => {

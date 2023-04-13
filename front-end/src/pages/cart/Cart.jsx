@@ -20,12 +20,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Cart = () => {
-  const {selectedProducts,selectedProductsID} = useSelector((state) => state.carttt)
+  const {selectedProducts} = useSelector((state) => state.carttt)
   const dispatch = useDispatch()
 
   return (
     <Box>
-   {selectedProductsID.map(item=>{
+   {selectedProducts.map((item,index)=>{
 return(
 
   <Paper dir="rtl" className="item-container">

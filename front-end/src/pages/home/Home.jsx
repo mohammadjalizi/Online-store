@@ -20,7 +20,7 @@ import { Add, Directions, Remove } from "@mui/icons-material";
 const Home = () => {
   const { data, error, isLoading } = useGetproductsByNameQuery()
   const dispatch = useDispatch()
-  const { selectedProducts } = useSelector((state) => state.carttt);
+  const { selectedProducts,selectedProductsID } = useSelector((state) => state.carttt);
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       backgroundColor: "#1976d2",
@@ -42,7 +42,7 @@ if(data){
       direction={"row"}
       sx={{ flexWrap: "wrap", justifyContent: "center" }}
     >
-      {data.map((item) => {
+      {data.map((item,index) => {
         return (
           <Card  className="card"   sx={{ maxWidth: 277, mb: 6, mx: 2 }}   key={item.id}     >
             <CardMedia
@@ -60,7 +60,7 @@ if(data){
               sx={{ justifyContent: "space-between" }}
               disableSpacing
             >
-          {selectedProducts.includes(item) ? (
+          {selectedProductsID.includes(item.id) ? (
                   <div
                     dir="rtl"
                     style={{ display: "flex", alignItems: "center" }}
@@ -75,7 +75,7 @@ if(data){
                       <Add fontSize="small" />
                     </IconButton>
 
-                    <StyledBadge badgeContent={1} color="primary" />
+                    <StyledBadge badgeContent={selectedProducts[index].Quntuity} color="primary" />
 
                     <IconButton
                       color="primary"
