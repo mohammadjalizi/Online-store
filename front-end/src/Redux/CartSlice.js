@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  selectedProducts: [
+  selectedProducts: [],
+  selectedProductsID: [],
 
-  ],
 }
 
 export const counterSlice = createSlice({
