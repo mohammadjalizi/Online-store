@@ -7,10 +7,11 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import { Box, Button, CircularProgress, Stack, Typography, useTheme } from "@mui/material";
+import { Badge, Box, Button, CircularProgress, IconButton, Stack, Typography, styled, useTheme } from "@mui/material";
 import { useGetproductsByNameQuery } from "Redux/ProudoctsApi";
 import { useDispatch } from "react-redux";
-import { addToCart } from "Redux/CartSlice";
+import { addToCart, decreaseQuntity, increaseQuntity } from "Redux/CartSlice";
+import { Add, Directions, Remove } from "@mui/icons-material";
 
 
 
@@ -19,7 +20,12 @@ import { addToCart } from "Redux/CartSlice";
 const Home = () => {
   const { data, error, isLoading } = useGetproductsByNameQuery()
   const dispatch = useDispatch()
-
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      backgroundColor: "#1976d2",
+      color: "#fff",
+    },
+  }));
   const theme = useTheme();
   if (isLoading) {
     return(
@@ -53,8 +59,8 @@ if(data){
               sx={{ justifyContent: "space-between" }}
               disableSpacing
             >
-      {false?(  <div style={{ display: "flex", alignItems: "center" }}>
-    <IconButton sx={{ color: "#1976d2", ml: "10px" }} onClick={() => {
+      {true?(  <div style={{ display: "flex", alignItems: "center" ,direction:"rtl" }}>
+    <IconButton sx={{  ml: "10px" }} onClick={() => {
 
 dispatch(increaseQuntity(item))
 
@@ -64,7 +70,7 @@ dispatch(increaseQuntity(item))
 
     <StyledBadge badgeContent={item.Quantity} color="secondary" />
 
-    <IconButton sx={{ color: "#1976d2", mr: "10px" }} onClick={() => {
+    <IconButton sx={{  mr: "10px" }} onClick={() => {
 
 dispatch(decreaseQuntity(item))
     }}>
