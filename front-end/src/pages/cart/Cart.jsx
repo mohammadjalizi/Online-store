@@ -25,7 +25,7 @@ const Cart = () => {
 
   return (
     <Box>
-   {selectedProducts.map((item,index)=>{
+   {selectedProducts.map(item=>{
 return(
 
   <Paper dir="rtl" className="item-container">

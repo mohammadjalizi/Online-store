@@ -27,6 +27,10 @@ const Home = () => {
       color: "#fff",
     },
   }));
+  const productQuntity=()=>{
+return 99;
+
+  }
   const theme = useTheme();
   if (isLoading) {
     return(
@@ -75,13 +79,14 @@ if(data){
                       <Add fontSize="small" />
                     </IconButton>
 
-                    <StyledBadge badgeContent={selectedProducts[index].Quntuity} color="primary" />
+                    <StyledBadge badgeContent={productQuntity()} color="primary" />
 
                     <IconButton
                       color="primary"
                       sx={{ mr: "10px" }}
                       onClick={() => {
                         dispatch(decreaseQuntity(item));
+                        
                       }}
                     >
                       <Remove fontSize="small" />

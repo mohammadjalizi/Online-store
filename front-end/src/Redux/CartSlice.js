@@ -49,10 +49,18 @@ return   item.id === action.payload.id
         deletProudoct: (state, action) => {
           const newArry=state.selectedProducts.filter((item)=>{
             return item.id !==action.payload.id
+            
                         
            
                        })
+                       const newArry2=state.selectedProductsId.filter((item)=>{
+                        return item.id !==action.payload.id
+                        
+                                    
+                       
+                                   })
                        state.selectedProducts=newArry
+                       state.selectedProductsID=newArry2
             },
 
   },
