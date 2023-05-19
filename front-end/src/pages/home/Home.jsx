@@ -28,7 +28,7 @@ const Home = () => {
     },
   }));
   const productQuntity=()=>{
-return 99;
+return 0;
 
   }
   const theme = useTheme();
