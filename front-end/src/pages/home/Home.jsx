@@ -83,7 +83,7 @@ if(data){
                       <Add fontSize="small" />
                     </IconButton>
 
-                    <StyledBadge badgeContent={selectedProducts[item].Quantity} color="primary" />
+                    <StyledBadge badgeContent={selectedProducts[].Quantity} color="primary" />
 
                     <IconButton
                       color="primary"
