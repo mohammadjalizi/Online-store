@@ -28,7 +28,11 @@ const Home = () => {
     },
   }));
   const productQuntity=()=>{
-return 0;
+    const myproduct=selectedProducts.find((itemuser)=>{
+
+      return  itemuser.id===0;
+    })
+
 
   }
   const theme = useTheme();
@@ -79,7 +83,7 @@ if(data){
                       <Add fontSize="small" />
                     </IconButton>
 
-                    <StyledBadge badgeContent={productQuntity()} color="primary" />
+                    <StyledBadge badgeContent={selectedProducts[item].Quantity} color="primary" />
 
                     <IconButton
                       color="primary"
