@@ -28,7 +28,7 @@ const products = [
     },
     {
       id: 4,
-      productName: "T-shirt",
+      productName: "Tdad",
       description:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elite. Sequi, perferendis beatae asperiores.",
       price: 400,
