@@ -26,26 +26,19 @@ const Home = () => {
   }));
 
 
-const productQuntity=()=>{
+const productQuntity=(itemApi)=>{
 
   const myproduct=selectedProducts.find((item)=>{
 
-return ddddd
+return  item.id===itemApi.id
 
 
   })
-  return.myproduct
+return myproduct.Quantity
   
   }
   
-  const productQuntity=()=>{
-    const myproduct=selectedProducts.find((itemuser)=>{
 
-      return  itemuser.id===0;
-    })
-
-
-  }
   const theme = useTheme();
   if (isLoading) {
     return(
@@ -94,7 +87,7 @@ if(data){
                       <Add fontSize="small" />
                     </IconButton>
 
-                    <StyledBadge badgeContent={selectedProducts[index].Quantity} color="primary" />
+                    <StyledBadge badgeContent={productQuntity(item)} color="primary" />
 
                     <IconButton
                       color="primary"
