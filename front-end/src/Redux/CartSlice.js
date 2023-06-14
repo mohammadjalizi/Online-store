@@ -41,7 +41,13 @@ return   item.id === action.payload.id
              
 
             })
+            const newArry2=state.selectedProductsID.filter((item)=>{
+              return item.id !==action.payload.id
+                          
+             
+                         })
             state.selectedProducts=newArry
+            state.selectedProductsID=newArry2
 
             }
 
@@ -53,7 +59,7 @@ return   item.id === action.payload.id
                         
            
                        })
-                       const newArry2=state.selectedProductsId.filter((item)=>{
+                       const newArry2=state.selectedProducts.filter((item)=>{
                         return item.id !==action.payload.id
                         
                                     

@@ -14,9 +14,6 @@ import { addToCart, decreaseQuntity, increaseQuntity } from "Redux/CartSlice";
 import { Add, Directions, Remove } from "@mui/icons-material";
 
 
-
-
-
 const Home = () => {
   const { data, error, isLoading } = useGetproductsByNameQuery()
   const dispatch = useDispatch()
@@ -27,6 +24,20 @@ const Home = () => {
       color: "#fff",
     },
   }));
+
+
+const productQuntity=()=>{
+
+  const myproduct=selectedProducts.find((item)=>{
+
+return ddddd
+
+
+  })
+  return.myproduct
+  
+  }
+  
   const productQuntity=()=>{
     const myproduct=selectedProducts.find((itemuser)=>{
 
@@ -83,7 +94,7 @@ if(data){
                       <Add fontSize="small" />
                     </IconButton>
 
-                    <StyledBadge badgeContent={selectedProducts[].Quantity} color="primary" />
+                    <StyledBadge badgeContent={selectedProducts[index].Quantity} color="primary" />
 
                     <IconButton
                       color="primary"
