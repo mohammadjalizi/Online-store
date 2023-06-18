@@ -10,7 +10,7 @@ const NotFound = () => {
         There is no design yet
         <br />
         <br />
-        Please try again later..
+        Please try again later....
       </Typography>
     </Box>
   );
