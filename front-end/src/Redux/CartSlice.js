@@ -22,6 +22,11 @@ return   item.id === action.payload.id
 
 
   })
+ localStorage.setItem('selectedProducts',
+ JSON.stringify(state.selectedProducts)
+ 
+ )
+
   increasedproudoct.Quantity +=1
     },
  
