@@ -10,15 +10,16 @@ app.get("/", (req, res) => {
 app.get("/Products", (req, res) => {
   res.send(products);
 });
-app.get("/products/id").(req,res)=>{
+app.get("/products", (req, res) => {
+  res.send(products);
+});
 
-const onproduct=products.find((item)=>{
-return item.id==req.parmas.id;
+app.get("/products/:id", (req, res) => {
+  const oneProduct = products.find((item) => {
+    return item.id == req.params.id;
+  });
 
-
-})
-res.send(onproduct)
-
-}
+  res.send(oneProduct);
+});
 const port = process.env.PORT || 5000;
 app.listen(port, console.log(`http://localhost:${port}`));
