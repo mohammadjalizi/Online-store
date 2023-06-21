@@ -11,7 +11,8 @@ import {
 import "./Cart.css";
 import { Add, Delete, Remove } from "@mui/icons-material";
 import { useSelector, useDispatch } from 'react-redux'
-import { decreaseQuntity, deletProudoct, increaseQuntity } from "Redux/CartSlice";
+import { decreaseQuantity, deleteProduct, increaseQuantity } from "Redux/CartSlice";
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     backgroundColor: "#1976d2",
@@ -37,17 +38,17 @@ return(
   <div style={{ display: "flex", alignItems: "center" }}>
     <IconButton sx={{ color: "#1976d2", ml: "10px" }} onClick={() => {
 
-dispatch(increaseQuntity(item))
+dispatch(increaseQuantity(item))
 
     }}>
       <Add />
     </IconButton>
 
-    <StyledBadge badgeContent={item.Quantity} color="secondary" />
+    <StyledBadge badgeContent={item.quantity} color="secondary" />
 
     <IconButton sx={{ color: "#1976d2", mr: "10px" }} onClick={() => {
 
-dispatch(decreaseQuntity(item))
+dispatch(decreaseQuantity(item))
     }}>
       <Remove />
     </IconButton>
@@ -56,13 +57,13 @@ dispatch(decreaseQuntity(item))
   <div className="price">${item.price}</div>
 
   <Button      sx={{display:{xs:'none',md:'inline-flex'}}} variant="text" color="error"onClick={() => {
-   dispatch(deletProudoct(item))
+   dispatch(deleteProduct(item))
   }
   }>
     delete
   </Button>
   <IconButton sx={{color:'#ef5350',display:{md:"none"}}} onClick={() => {
-   dispatch(deletProudoct(item))
+   dispatch(deleteProduct(item))
   }
   }>
     <Delete/>
