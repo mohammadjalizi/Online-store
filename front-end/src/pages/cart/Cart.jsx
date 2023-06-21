@@ -24,9 +24,12 @@ const Cart = () => {
   const {selectedProducts} = useSelector((state) => state.carttt)
   const dispatch = useDispatch()
 
+  let Subtotal=0
   return (
     <Box>
    {selectedProducts.map(item=>{
+
+    Subtotal+=item.price *item.quantity
 return(
 
   <Paper dir="rtl" className="item-container">
@@ -79,7 +82,7 @@ dispatch(decreaseQuantity(item))
 <Divider/>
 <Stack sx={{justifyContent:'space-between',p:1.2} } direction={"row"}>
 <Typography  > Subtotal </Typography>
-<Typography  >$100  </Typography> 
+<Typography  >${Subtotal}  </Typography> 
 
 </Stack>
 <Divider/>
