@@ -78,7 +78,7 @@ const navagite=useNavigate()
               <CardMedia
                 component="img"
                 height="277"
-                image={item.imageLink}
+                image={item.imageLink[0]}
                 alt="Paella dish"
                 onClick={()=>{
 
