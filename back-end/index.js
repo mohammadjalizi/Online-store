@@ -10,5 +10,15 @@ app.get("/", (req, res) => {
 app.get("/Products", (req, res) => {
   res.send(products);
 });
+app.get("/products/id").(req,res)=>{
+
+const onproduct=products.find((item)=>{
+return item.id==req.parmas.id;
+
+
+})
+res.send(onproduct)
+
+}
 const port = process.env.PORT || 5000;
 app.listen(port, console.log(`http://localhost:${port}`));
