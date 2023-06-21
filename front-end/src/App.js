@@ -12,15 +12,19 @@ import {
 
 import NotFound from "./pages/NotFound";
 import Cart from "pages/cart/Cart";
-import Productdetails from "pages/details/Productdetails";
+import ProductDetail from "pages/details/ProductDetail";
+
+
+
+   
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<Home />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="./Productdetails:id" element={< Productdetails />} />
- 
+      <Route path="product-details/:id" element={<ProductDetail />} />
+
 
       <Route path="*" element={<NotFound />} />
 
