@@ -54,7 +54,7 @@ dispatch(decreaseQuantity(item))
     </IconButton>
   </div>
 
-  <div className="price">${item.price}</div>
+  <div className="price">${item.price *item.quantity}</div>
 
   <Button      sx={{display:{xs:'none',md:'inline-flex'}}} variant="text" color="error"onClick={() => {
    dispatch(deleteProduct(item))
