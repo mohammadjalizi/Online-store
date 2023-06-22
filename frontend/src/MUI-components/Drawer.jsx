@@ -16,11 +16,9 @@ import ListItemText from "@mui/material/ListItemText";
 import {
   Brightness4,
   Brightness7,
-  Create,
+
   Home,
-  Logout,
-  Person2,
-  Settings,
+
   ShoppingCart,
 } from "@mui/icons-material";
 
@@ -47,6 +45,7 @@ const Drawerr = ({
 
   const navigate = useNavigate();
   const theme = useTheme();
+  // @ts-ignore
   const {selectedProducts} = useSelector((state) => state.carttt)
   const myList = [
     { text: "Home", icon: <Home />, path: "/" },
