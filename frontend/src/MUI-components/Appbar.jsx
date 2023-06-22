@@ -1,4 +1,6 @@
  
+
+  import img1 from './me.jpg'
 import {
   Toolbar,
   AppBar,
@@ -43,7 +45,7 @@ const Appbar = ({ drawerWidth, showDrawer }) => {
        mohammadjalizi
         </Typography>
 
-        <Avatar alt="Remy Sharp" src="./imges/Ali Hassan.JPG" />
+        <Avatar alt="Remy Sharp" src={img1} />
       </Toolbar>
     </AppBar>
   );
